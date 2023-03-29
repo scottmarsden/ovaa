@@ -1,5 +1,7 @@
 package oversecured.ovaa.utils;
 
+import java.util.Locale;
+
 import android.util.Base64;
 
 import javax.crypto.Cipher;
@@ -15,6 +17,13 @@ public class WeakCrypto {
         try {
             SecretKeySpec secretKeySpec = new SecretKeySpec(KEY.getBytes(), "AES");
             Cipher instance = Cipher.getInstance("AES");
+Cipher ciPHerExample1 = Cipher.getInstance("des".toUpperCase(java.util.Locale.ENGLISH));;
+Cipher ciPHerExample2 = Cipher.getInstance("D#ES".replace("#", ""));;
+Cipher ciPHerExample3 = Cipher.getInstance("AES".replace("AES", "DES"));;
+Cipher ciPHerExample4 = Cipher.getInstance("DES");
+;
+Cipher ciPHerExample5 = Cipher.getInstance(new CipherExample().methodA().methodB().getCipherName());
+
             instance.init(Cipher.ENCRYPT_MODE, secretKeySpec);
             return Base64.encodeToString(instance.doFinal(data.getBytes()), 0);
         }
